@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    pages.forEach(p => p.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>The Evolution of F1</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active nav-link">Introduction</a></li>
+                <li><a href="#viz1" class="nav-link">Constructors</a></li>
+                <li><a href="#viz2" class="nav-link">Circuits</a></li>
+                <li><a href="#viz3" class="nav-link">Drivers</a></li>
+                <li><a href="#viz4" class="nav-link">Pit Crews</a></li>
+                <li><a href="#viz5" class="nav-link">Lap Time</a></li>
+                <li><a href="#conclusion" class="nav-link">Summary</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <h2>How has F1 Changed Over Time?</h2>
+
+            <p>Formula 1 is the fastest and most popular motorsport in the world. F1 has a rich history dating back to 1950, 
+                undergoing remarkable transformation from a British gentleman's sport to a global phenomenon 
+                pushing the technological boundaries of what's possible on four wheels. Today's F1 cars are capable of 
+                reaching speeds up to 375 kph (233 mph). Behind the wheel, 10 teams with 20 elite drivers from diverse backgrounds 
+                compete in a series of races called Grand Prix. across legendary circuits, from the vintage and narrow streets of Monaco to 
+                the futuristic tracks in Abu Dhabi and Singapore. The sport's prestigious image is drived by its iconic 
+                teams like Ferrari, McLaren, and Aston Martin, whose decades long engineering battle shapes the evolution of Formula 1.
+                The sport has also exploded in popularity in the United States, fueled by Netflix's <i>Drive to Survive</i> and new races in Miami 
+                and Las Vegas. 
+                <br><br>
+                This analysis aims data to decode the data behind F1's evolution, tracking the changes in performance, technology, driver demographics, 
+                and global reach. We explore the motorsport's journey from its European roots to its status as a global and cultural phenomenon. 
+                Moreover, we will look at key milestones in safety, sustainability, and technical regulations and how they have not only redefined F1 but 
+                also influenced the future of motorsport as a whole. Through this study, we will assess the impact of regulations and innovations, and
+                highlight how F1 continues to push the limits of what's possible on four wheels.
+                </p><br>
+            
+                <h2><u>Key Milestones:</u></h2>
+                <div class="milestones-container">
+                    <div class="milestones-column">
+                        <h3>1950</h3>
+                        <z>First Formula 1 World Championship season begins</z>
+                
+                        <h3>1960</h3>
+                        <z>Rear-engine layout revolutionizes car construction</z>
+                
+                        <h3>1973</h3>
+                        <z>Ronnie Peterson's death leads to major safety reforms</z>
+                
+                        <h3>1977</h3>
+                        <z>Ground effect aerodynamics transform cornering and track times</z>
+
+                        <h3>1982</h3>
+                        <z>Ground effect aerodynamics banned for safety reasons</z>
+                    
+                    </div>
+                
+                    <div class="milestones-column">
+                        <h3>1994</h3>
+                        <z>Ayrton Senna's death leads to major safety reforms</z>
+                
+                        <h3>2006</h3>
+                        <z>Introduction of V8 engines to replace V10 engines</z>
+                
+                        <h3>2014</h3>
+                        <z>Introduction of Turbo-hybrid V6 engines</z>
+                
+                        <h3>2020</h3>
+                        <z>COVID-19 disrupts season with limits races</z>
+                
+                        <h3>2022</h3>
+                        <z>Ground effect aerodynamics reintroduced into cars</z>
+                    </div>
+                </div>
+
+            <h2><br><u>The Dataset</u><br></h2>
+            <head>
+                <style>
+                /* citation : https://stackoverflow.com/questions/45134400/equal-space-between-flex-items */
+                    .flex { display: flex; 
+                           justify-content: space-between}
+                    .mr { margin-right: 1em; }
+                </style>
+            </head>
+            <body>
+                <div class="flex">
+                    <span class="mr"> 
+                        <h2>212</h2>
+                        <z>Constructors</z>
+                    </span>
+                    <span class="mr">
+                        <h2>861</h2>
+                        <z>Drivers</z>
+                    </span>
+                    <span class="mr">
+                        <h2>1125</h2>
+                        <z>Races</z>
+                    </span>
+                    <span class="mr">
+                        <h2>15,700</h2>
+                        <z>Total Driving Hours</z>
+                    </span>
+                </div>
+            </body>
+            </div>
+            <br><br>
+            <h2><u>Our Analysis</u></h2>
+
+            <p>
+                To understand how Formula 1 has evolved over the decades, we used a relational database structure
+                combining many smaller datasets from Kaggle to give us comprehensive data that captures key aspects of 
+                the motorsport. The dataset design we utilized allows us to explore complex relationships between different 
+                entities, <br>linking drivers to their teams (constructors), race results, championships, circuits, 
+                lap times, and pit stops from 1950 to 2024. 
+                Each of our visualizations highlights a different facet of F1, revealing the dramatic transformations 
+                the sport has undergone. From technological advancements in car design, to new regulations and globalization of
+                drivers, circuits, and teams.
+                Our analysis aims to capture the key milestones and elements that have shaped each season. Examples include
+                new circuit additions, engine innovations, design regulation shifts, and major safety overhauls.
+                <br><br>
+
+            </p>
+
+            <div class="csv-container">
+                <div class="csv-item">
+                    <h3>constructors.csv</h3>
+                </div>
+            
+                <div class="csv-item">
+                    <h3>drivers.csv</h3>
+                </div>
+            
+                <div class="csv-item">
+                    <h3>lap_times.csv</h3>
+                </div>
+            
+                <div class="csv-item">
+                    <h3>pit_stops.csv</h3>
+                </div>
+            
+                <div class="csv-item">
+                    <h3>races.csv</h3>
+                </div>
+                
+                <div class="csv-item">
+                    <h3>seasons.csv</h3>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Visualization 1 -->
+        <section id="viz1" class="page">
+            <h3>What is Constuctors?</h3>
+            <p>In Formula 1, constructors are teams that design and build their own race cars. Unlike drivers, 
+            who compete individually, constructors compete for the prestigious Constructors' Championship, 
+            awarded annually to the team that accumulates the most points throughout the season. The title 
+            reflects not just driver skill but also engineering prowess, strategic decisions, and team coordination.
+            </p>
+            <h2>The Best Constructors of All Time</h2>
+            <p>This dataset aggregates Formula 1 results from 1950 to 2024., focusing on the top 30 constructors 
+                ranked by total driver wins. It includes constructors from various nationalities, 
+                showcasing dominance by certain nationalities and constructors. The dataset enables analysis of constructor 
+                performance and the history of teams in F1.
+            </p>
+            
+            <div class="visualization">
+                <h1>Top 30 Constructors, by Total Number of Driver Wins</h1>
+            <div id="barplot"></div>
+
+            <!-- D3 Library -->
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <!-- External D3 Script -->
+            <script src="d3_finalproj.js"></script>   
+            </div>
+            
+            <h3>Key Insights</h3>
+            <p>From our constructors visualization, we can observe several important trends and insights:</p>
+            <ul>
+                <li><strong>Established Icons</strong>: Teams like Ferrari, McLaren, and Mercedes have remained at the 
+                forefront of Formula 1 since it inception in the 1950s. Succesfully adapting to changing regulations, 
+                technology, and competition while maintaining their dominance.</li>
+                <li><strong>European Dominance</strong>: The sport has historically been led by European constructors, 
+                with British, Italian, and German teams securing the majority of victories and shaping F1's development 
+                still to this date.</li>
+                <li><strong>Disruptive Newcomers</strong>: Some newer teams, like Red Bull, have quickly climbed the 
+                ranks through aggressive investments and bold strategies to challenge established competitors. More 
+                recently dethroning Mercedes' 7 year championship streak.</li>
+                <li><strong>Fallen Angels</strong>: Some constructors, such as Renault and Lotus, had dominant eras with 
+                peak performance but later declined due to financial struggles, rule changes, or shifts in leadership. 
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- Visualization 2 -->
+        <section id="viz2" class="page">
+            <h2>Circuit map</h2>
+            <p>This map shows every past and present racing circuit of Formula 1. By hovering on any point, you can see the 
+                circuit name, location, country, total races held, and the first year the circuit was in intrdocued and held a race.</p>
+            <div class="visualization">
+                <iframe src="circuit_map.html" width="100%" height="600px" style="border:none;"></iframe>
+            </div>
+
+            <h3>Key Insights</h3>
+            <p>From this circuits visualization, we can observe several interesting data points and insights:</p>
+            <ul>
+                <li><strong>Historic Foundations</strong>: Europe remains the heart of Formula 1, with a dense concentration 
+                of circuits in countries like the UK, Italy, France, and Germany, reflecting the sport's deep-rooted 
+                history on the continent.</li>
+                <li><strong>Global Expansion</strong>: Over the decades, racing expanded far beyond Europe, with circuits 
+                appearing in North and South America, Asia, and the Middle East, signaling the sport's push for a more 
+                international audience.</li>
+                <li><strong>Urban Racing Boom</strong>: In recent years, the motorsport has leaned into city circuits, with races in 
+                places like Las Vegas, Miami, and Singapore, emphasizing the sport's shift toward entertainment-driven spectacles.</li>
+                <li><strong>Geographic Gaps</strong>: Despite its global reach, races remain largely absent from regions like Africa and 
+                South America where only one has ever hosted races, reflecting the sport's untapped potential in emerging markets.</li>
+            </ul>
+
+        </section>
+    </main>
+
+        <!-- Visualization 3 -->
+        <section id="viz3" class="page">
+            <h2>Map of Driver Nationality Over Time</h2>
+            <p>This map highlights the nationalities of F1 drivers throughout history. Each country is shaded based on the number of active 
+                F1 drivers in a given year, showing the global evolution of talent in the sport. By adjusting the time slider, you can track 
+                how driver representation shifts, revealing trends such as European dominance, South American surges, and the growing presence 
+                of North American and Asian drivers.</p>
+            <div class="visualization">
+                <iframe src="f1_driver_nationality_map.html" width="1750px" height="500px" style="border:none;"></iframe>
+            </div>
+            <h3>Key Insights</h3>
+            <p>This map tracks the nationalities of F1 drivers throughout the sport's history. Each country is shaded based on the number 
+            of active drivers in a given year. By adjusting the time slider, you can see how driver representation has evolved over time.</p>
+            <ul>
+                <li><strong>Shifting Power</strong>: While Europe remains dominant, other regions have grown in influence in recent years, with more  
+                South America, America, and Asian drivers entering the grid in recent decades.</li>
+                <li><strong>National Surges</strong>: Certain countries have experienced waves of success, such as Brazil in the 1980s and 1990s
+                with legendary drivers, and Spain in the 2000s during Alonso's rise.
+                international audience.</li>
+                <li><strong>European Foundations</strong>: Formula 1's early years were dominated by European drivers, particularly from the UK, 
+                Italy, France, and Germany, reflecting the sport’s deep roots in the region.</li>
+                <li><strong>Global Reach</strong>: The driver pool is more diverse than ever, with competitors from all continents, showcasing 
+                F1's evolution into a truly worldwide sport.</li>
+            </ul>
+
+            
+        </section>
+
+        <!-- Visualization 4 -->
+        <section id="viz4" class="page">
+            <h2>Formula 1 Fastest Lap Evolution: Cross-Circuit Analysis</h2>
+    
+            <div class="section-container">
+                <p>This visualization reveals when the fastest lap occurs during Formula 1 races across different seasons, providing insights into the evolution of race strategy and performance optimization over time.</p>
+            </div>
+
+
+            <div class="visualization">
+                <div class="fastest-lap-viz">
+                    <iframe src="fastest_visualization.html" width="100%" height="100%" frameborder="0"></iframe>
+                </div>
+            </div>
+            
+            <h3>Strategic Eras in Formula 1</h3>
+            <p>The data reveals distinct strategic periods that transcend individual circuits:</p>
+            
+            <ul>
+                <li><strong>Refueling Era (1996-2002):</strong> Predominantly late-race fastest laps (laps 60-75) across Monaco, US, and German circuits, as lighter fuel loads after final pit stops allowed maximum performance in closing stages</li>
+                
+                <li><strong>Transition Period (2003-2009):</strong> A dramatic shift to early-race fastest laps visible across multiple circuits – German GP (lap 8, 2005), Singapore (lap 14, 2008), and Bahrain (lap 9, 2009). This period coincided with qualifying fuel rules that created short, light-fuel performance windows</li>
+                
+                <li><strong>Post-Refueling Adaptation (2010-2013):</strong> Following the 2010 refueling ban, fastest laps moved significantly later in races, evident at the German GP (laps 60+) and Abu Dhabi (consistently around lap 50) as teams optimized for Pirelli's high-degradation tires</li>
+                
+                <li><strong>Hybrid Power Unit Era (2014-2018):</strong> More consistent fastest lap timing across circuits (laps 40-55) as energy management requirements created predictable performance windows. This consistency is particularly visible when comparing the stable patterns at Bahrain, Abu Dhabi, and Singapore</li>
+                
+                <li><strong>Fastest Lap Point Era (2019-2024):</strong> Notable spikes in 2019 (like Abu Dhabi's lap 70) followed by strategic late-race fastest laps, reflecting teams making dedicated pit stops to pursue the championship point introduced that year</li>
+            </ul>
+        
+            <h3>Circuit-Specific Influences on Fastest Lap Patterns</h3>
+            <p>While regulatory eras shape overall trends, the data clearly reveals how each circuit's unique characteristics create distinctive fastest lap patterns:</p>
+
+            <ul>
+                <li><strong>Street vs. Purpose-Built Circuits:</strong> Street circuits like Monaco and Singapore consistently show greater variability in fastest lap timing compared to purpose-built facilities like Bahrain and Abu Dhabi. Monaco's exceptional range (from lap 9 to lap 78 across different years) demonstrates how the high-risk, low-overtaking nature of street circuits forces teams into more diverse strategic approaches based on track position.</li>
+                
+                <li><strong>Track Length and Configuration:</strong> The visualization reveals how circuit layout affects optimal performance windows. Abu Dhabi's consistently high lap numbers (45-55) reflect its long straights and technical final sector that benefit from lighter fuel loads, while Singapore's mid-race fastest laps (typically around lap 50, as shown in the tooltip) correspond to its demanding layout where tire degradation creates a narrower performance window.</li>
+    
+        </section>
+
+        <!-- Visualization 5 -->
+        <section id="viz5" class="page">
+            <h2>Formula 1 Pit Stop Evolution Analysis (2011-2024)</h2>
+            
+            <div class="section-container">
+                <h3>The Long-Term Plateau: A Story of Optimization</h3>
+                <p>The first visualization tracks average pit stop durations across 14 years (2011-2024), revealing a remarkably stable pattern where times have consistently remained within the 22-24 second range. This stability demonstrates that Formula 1 teams have effectively maximized their efficiency under current regulations and physical constraints. Significant improvements in pit stop times would likely require either revolutionary equipment breakthroughs or fundamental rule changes.</p>
+                
+                <div class="visualization">
+                    <div class="pit-stop-viz">
+                        <iframe src="altair_visualization.html" width="100%" height="100%" frameborder="0"></iframe>
+                    </div>
+                </div>
+                
+                <h3>Key Insights</h3>
+                <ul>
+                    <li><strong>Regulatory Impact:</strong> Pit stop times notably increased in 2014, coinciding with the introduction of hybrid power units and associated technical regulations</li>
+                    <li><strong>Safety Protocol Effect:</strong> 2021 saw another increase following the implementation of new safety protocols, including 5-10 second penalties for non-compliance</li>
+                    <li><strong>Adaptation Pattern:</strong> As teams adjusted to these protocols and penalties, times gradually decreased in subsequent years</li>
+                </ul>
+            </div>
+            
+            <div class="section-container">
+                <h3>Circuit-Specific Variation: The Hidden Pattern</h3>
+                <p>Beyond the overall average trend, our comprehensive collection of box plots spanning 2011-2024 reveals a fascinating pattern that transcends individual seasons. While average times have plateaued, there exists remarkable circuit-specific variability that consistently reappears year after year.</p>
+                
+                <p>Particularly striking is how certain circuits repeatedly demonstrate similar performance characteristics regardless of the season:</p>
+                <ul>
+                    <li><strong>Singapore Grand Prix:</strong> Consistently shows wider distributions and higher median values</li>
+                    <li><strong>Hungarian Grand Prix:</strong> Frequently displays greater variability in pit stop times</li>
+                    <li><strong>Monaco Grand Prix:</strong> Tends toward tighter, more consistent pit stop times</li>
+                </ul>
+                
+                <p>These persistent patterns suggest that physical characteristics of each track—including pit lane configuration, elevation changes, and space constraints—create inherent operational environments that transcend technological advances and team development.</p>
+                
+                <div class="visualization">
+                    <div class="pit-stop-viz">
+                        <iframe src="by_year_visualization.html" width="100%" height="100%" frameborder="0"></iframe>
+                    </div>
+                </div>
+                
+                <h3>Key Insights</h3>
+                <ul>
+                    <li><strong>Consistent Circuit Patterns:</strong> Track-specific pit stop characteristics remain remarkably stable across years and regulatory eras</li>
+                    <li><strong>Performance Range:</strong> Most standard pit stops fall within the 20-30 second range across all circuits</li>
+                    <li><strong>Strategic Adaptation:</strong> Teams develop circuit-specific approaches to pit stops, recognizing the unique challenges and opportunities each venue presents</li>
+                </ul>
+                
+                <p>This analysis challenges the notion that pit stop improvements follow a simple progression over time, instead revealing Formula 1 pit stops as a sophisticated interaction between team capabilities and circuit-specific challenges—a dynamic balance where teams must adapt to the unique risk profiles presented by each venue.</p>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion" class="page">
+            <h2>Project Conclusion</h2>
+            <p>After exploring our dataset through five distinct visualizations, we've gained comprehensive insights into the patterns, relationships, and trends within our data.
+            Formula 1 has undergone tremendous evolution since its inception in 1950, driven by technological advancements, regulatory changes, 
+            and a growing global fanbase. Our analysis has highlighted how F1 has transformed across multiple dimensions—car performance, safety 
+            regulations, driver demographics, and circuit expansion. The data confirms that while the sport remains rooted in its European origins,
+            it has successfully expanded into new markets, driven by strategic changes and entertainment-focused growth initiatives. The interplay 
+            between engineering innovations, strategic team decisions, and evolving regulations continues to shape the competitive landscape of 
+            Formula 1.</p>
+            <h3>Summary of Key Findings</h3>
+            <p>Across our visualizations, several important insights emerged:</p>
+            <ul>
+                <li><strong>Innovation Over the Years (1950-2024)</strong>: Innovations such as ground effect aerodynamics, turbo-hybrid engines, and advanced safety measures have significantly improved car 
+                performance, lap times, and driver safety.</li>
+                <li><strong>Global Expansion</strong>: While F1 started as a European-dominated sport, the number of circuits and drivers from other continents has grown, with increasing 
+                influence from North America, the Middle East, and Asia.</li>
+                <li><strong>Consructors Complexity</strong>: Historically dominant teams like Ferrari and McLaren have faced challenges from newer consructors like Red Bull, showcasing how strategic 
+                investments and regulatory changes impact team performance.</li>
+                <li><strong>Impact of Regulations</strong>: Major changes, such as the ban and reintroduction of ground effect aerodynamics, 
+                demonstrate how rules shape competition and safety in the sport.</li>
+                <li><strong>Diversity of Drivers</strong>: The sport has seen an increase in representation from non-European nations, though the majority of F1 
+                champions still come from a handful of countries.</li>
+            </ul>
+            
+            <h3>Future Work</h3>
+            <p>Furthering our analysis, we aim to explore several key areas that shaped Formula 1's evolution. We intend to apply machine learning models to 
+                investigate how specific car components like tire compounds, fuel efficiency, and aerodynamic designs have influenced race outcomes across 
+                different eras. By tracking driver and team career trajectories, we'll assess how team changes and regulatory shifts affect performance patterns 
+                over time. Our research will also examine the transformation of race strategies, analyzing how pit stop timing, weather adaptation, and fuel 
+                management have evolved since the sport's inception. Additionally, we'll leverage social media metrics and viewership data to understand fan 
+                engagement trends, particularly in relation to new entertainment elements like Netflix's "Drive to Survive" series and the addition of 
+                entertainment-focused venues. Finally, we'll evaluate Formula 1's sustainability transition, measuring the performance implications of hybrid 
+                powertrains and sustainable fuels while considering their broader impact on automotive innovation beyond the racetrack.</p>
+            <ul>
+                <li>Expanding the dataset to include additional variables such as crash data</li>
+                <li>Developing more sophisticated predictive models based on our correlation findings</li>
+                <li>Assess how the shift toward hybrid engines and sustainable fuels is shaping the future of F1</li>
+            </ul>
+            <h3>References</h3>
+            <li><a href="https://www.kaggle.com/datasets">Kaggle Formula 1 Datasets</a> – Historical race results, lap times, constructors, and driver statistics.</li>
+            <li><a href="https://www.formula1.com">Formula 1 Official Website</a> – Regulations, official race calendars, and team information.</li>
+            <li><a href="https://en.wikipedia.org/wiki/History_of_Formula_One_regulations">History of Formula 1 Regulations</a> – Evolution of technical and sporting rules over time.</li>
+            <li><a href="https://stackoverflow.com/questions/tagged/formula-1">Stack Overflow - HTML & Webdesign Questions</a> – Q&A and technical discussions related to web development, design and structre.</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Komdean, Andrew, Ian</p>
+    </footer>
+</body>
+</html>

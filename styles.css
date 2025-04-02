@@ -1,0 +1,212 @@
+/* Base styles */
+:root {
+    --main-color: #FF1E00;
+    --dark-main-color: #CC1800;
+    --light-main-color: #FF6B5A;
+    --text-color: #333;
+    --light-bg: #f8f8f8;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('Formula1-Regular_web_0.ttf') format('truetype');
+}
+body {
+    font-family: 'Formula1', sans-serif;
+}
+
+/* Header styles */
+header {
+    background-color: var(--main-color);
+    color: var(--white);
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 0.5rem;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: var(--dark-main-color);
+}
+
+nav ul li a.active {
+    background-color: var(--white);
+    color: var(--main-color);
+}
+
+/* Main content styles */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--main-color);
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+z {
+    font-size: 16px !important;
+    font-family: "Arial", sans-serif;
+    color: black; 
+}
+
+
+
+/* Visualization container */
+.visualization {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.pit-stop-viz {
+    background-color: #ffffff;
+    height: 750px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.pit-stop-viz iframe {
+    max-width: 100%;
+    height: 750px;
+    display: block;
+    margin: 0 auto;
+}
+
+.fastest-lap-viz {
+    background-color: #ffffff;
+    height: 750px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.fastest-lap-viz iframe {
+    max-width: 100%;
+    height: 750px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--main-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Content sections */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Lists */
+ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+h3 {
+    color: var(--main-color);
+    margin: 20px 0 10px 0;
+}
+
+body, h4 {
+    font-family: "Times New Roman";
+}
+
+header, nav, h1, h2, h3, h5, h6, button, .visualization, footer {
+    font-family: 'Formula1', sans-serif;
+}
+
+.parent-element {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.milestones-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.milestones-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.csv-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 20px; 
+}
+
+.csv-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
