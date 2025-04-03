@@ -207,6 +207,12 @@ header, nav, h1, h2, h3, h5, h6, button, .visualization, footer {
     align-items: center;
 }
 
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 
